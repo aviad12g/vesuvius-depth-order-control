@@ -1,0 +1,8 @@
+numpy
+scipy
+tifffile
+pillow
+numcodecs
+torch>=2.6
+# ink9um_infer.py additionally needs the ScrollPrize/villa 'vesuvius' package (commit 23adee04) on PYTHONPATH
+# depth_order_control.py uses Hecate's standalone hecate.py (huggingface.co/scrollprize/hecate)
