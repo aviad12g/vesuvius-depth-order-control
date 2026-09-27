@@ -33,7 +33,7 @@ The 2026 Open Problems note that *"better diagnostics matter just as much as bet
 | `ink9um_infer.py` | Runs the pinned official `ink_9um` hybrid_3d2d seed42 step-75000 checkpoint on the same renders: 17 central planes, 128² tiles, Hann blending. Uses the Villa implementation. |
 | `cross_model_agreement.py` | Global and local (2.5 mm window) Pearson agreement between two models' maps, real vs shuffled, excluding a margin at the render boundary. |
 | `results/` | Per-surface tables (`control_summary.csv`, `cross_model_agreement.csv`, `shape_metrics.json`) (the PHerc1447 reference render window is available on request; it is 10 MB). |
-| `figures/` | Figures used below. |
+| `*.jpg` | Figures used below. |
 
 ## Quick start
 
@@ -98,7 +98,7 @@ A single RTX 4090/A6000 renders an 11 cm² segment and runs both models on it (b
 
 On all ten segments the shuffled input gives the highest positive fraction, and it also does at the PHerc1447 text location. Positive area therefore cannot distinguish ink from depth-order-independent responses. On PHerc1447, what survives the control is **shape**: the reversed-order map has a coherent ~3 mm ring, and the shuffled map is uncorrelated with it (r = −0.04).
 
-![Depth-order control on PHerc0800 20251028222030: raw, reverse, forward, shuffled](figures/depth_control_example_pherc0800.jpg)
+![Depth-order control on PHerc0800 20251028222030: raw, reverse, forward, shuffled](depth_control_example_pherc0800.jpg)
 
 We also ran four earlier non-public renders (small surfaces we grew ourselves on PHerc0813, 0125 and 0800). The pattern held on the two PHerc0800 ones. On PHerc0125 it was a near-tie (0.097 shuffled vs 0.101 forward). On PHerc0813 r18 it reversed: the shuffled input gave *fewer* positives (0.010 vs 0.066/0.108). That table is in `results/control_summary.csv`, but those meshes are not published here.
 
@@ -122,18 +122,18 @@ Reading the table:
 
 - **PHerc1447.** Both models agree much more than on any eligible surface: global r = 0.69 in the reversed order, against −0.06 to 0.23 for all eligible surface/direction pairs except one, which reaches 0.40. Shuffling the depth order removes the agreement (−0.16).
 - **Eligible surfaces.** Real-input agreement exceeds shuffled-input agreement on most of them, so the two models do share *something* depth-dependent. Inspection shows it is structure such as voids and layer boundaries, not strokes (next section).
-- **Local maxima.** On the large PHerc1203 meshes (hundreds of windows), individual windows reach r 0.66–0.79. Given how many windows are tested, these maxima are expected, and every one we inspected is an artifact. The PHerc1447 ring reaches 0.89 from only 66 windows.
+- **Local maxima.** On the large PHerc1203 meshes (hundreds of windows), individual windows reach r 0.66–0.79. Given how many windows are tested, these maxima are expected, and every one we inspected is an artifact. The PHerc1447 ring reaches 0.89 from only 49 windows.
 - **The eligible surface closest to the PHerc1447 level** is PHerc0800 `…222030`, forward (0.40). Its agreement comes from a corner full of large voids (figure below).
 
-![PHerc1447: both models, real vs shuffled](figures/pherc1447_two_models_real_vs_shuffled.jpg)
+![PHerc1447: both models, real vs shuffled](pherc1447_two_models_real_vs_shuffled.jpg)
 
 ### 3. What the highest-agreement windows on eligible scrolls actually are
 
 - **Render boundaries.** Before the margin rule, the single highest-agreement region on PHerc0800 `…222030` was the corner of the surface volume. Both models fire along the edge of their field of view.
-- **Void margins.** After excluding the boundary, the top windows on PHerc0800 `…222030` and PHerc1203 `…231446965` sit on large air pockets and gaps visible in the raw planes. Both models respond to the same void edge as a 1–2 mm blob with no stroke structure (`figures/void_margin_examples.jpg`).
+- **Void margins.** After excluding the boundary, the top windows on PHerc0800 `…222030` and PHerc1203 `…231446965` sit on large air pockets and gaps visible in the raw planes. Both models respond to the same void edge as a 1–2 mm blob with no stroke structure (`void_margin_examples.jpg`).
 - **Folded or torn mesh.** On PHerc1203 `…221856743`, the best-agreement window and the densest Hecate responses sit where the mesh is torn and crosses layers. The render shows seams there.
 
-![Void-margin examples](figures/void_margin_examples.jpg)
+![Void-margin examples](void_margin_examples.jpg)
 
 So agreement between two models is a useful signal only after boundaries and voids are excluded. Even then it should be read together with the shuffle control and the raw CT.
 
