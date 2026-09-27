@@ -1,0 +1,16 @@
+scroll,surface,render_source,valid_cm2_at_9.6um,pos_frac_reverse,pos_frac_forward,pos_frac_shuffled,shuffled_over_best_real
+PHerc0800,20251028213516 (official surface volume),official,1.7,0.092,0.012,0.143,1.55
+PHerc0800,20251028220042 (official surface volume),official,1.58,0.023,0.041,0.108,2.63
+PHerc0800,20251028220955 (official surface volume),official,1.53,0.121,0.035,0.197,1.63
+PHerc0800,20251028222030 (official surface volume),official,2.34,0.007,0.025,0.11,4.4
+PHerc0800,20251028225813 (official surface volume),official,1.83,0.011,0.012,0.171,14.25
+PHerc0800,20251029010146 (official surface volume),official,0.36,0.015,0.002,0.242,16.13
+PHerc1203,auto_grown_20251005231446965,"tifxyz, rendered here",10.99,0.01,0.008,0.056,5.6
+PHerc1203,auto_grown_20251005221856743,"tifxyz, rendered here",10.26,0.072,0.056,0.115,1.6
+PHerc1203,auto_grown_20250930104534929,"tifxyz, rendered here",7.65,0.031,0.037,0.098,2.65
+PHerc1203,auto_grown_20251005230830031 (known folded mesh),"tifxyz, rendered here",14.19,0.017,0.013,0.039,2.29
+PHerc0800,rank2 community surface (93-layer render),prior render,1.2,0.0241,0.0305,0.0464,1.52
+PHerc0800,rank3 community surface (93-layer render),prior render,1.2,0.0092,0.036,0.0629,1.75
+PHerc0813,r18 GrowPatch surface (93-layer render),prior render,0.51,0.0663,0.1075,0.01,0.09
+PHerc0125,r12 surface (93-layer render),prior render,0.51,0.0312,0.1014,0.097,0.96
+PHerc1447,announced-text reference window (not eligible),"public July-2 mesh auto_grown_20250702235910292 (earlier campaign render; array on request)",0.51,0.075,0.068,0.176,2.35
